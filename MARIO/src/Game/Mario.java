@@ -6,12 +6,16 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
+
+import Game.Action.KeyAction;
 public class Mario {
 	public static Frame frame;
 	public static boolean loop;
 	public static Image brick = new ImageIcon("./model/brick.png").getImage();
 	public static Image player = new ImageIcon("./model/mario.png").getImage();
-
+	public static int PlayerX = 60;
+	public static int PlayerY = 510;
+	
 	public static void main(String[] args) {
 		frame = new Frame();
 		loop = true;
@@ -19,7 +23,7 @@ public class Mario {
 		System.out.println(brick);
 		
 		Graphics gra = frame.panel.image.createGraphics();
-		
+		Player player = new Player();
 		//FPS
 		long startTime;
 		long fpsTime = 0;
@@ -38,7 +42,7 @@ public class Mario {
 			FPSCount++;
 			startTime = System.currentTimeMillis();
 			
-		
+			
 		switch(screen) {
 		
 			//スタード画面
@@ -54,6 +58,12 @@ public class Mario {
 			case PLAY:
 				//ステージ描画（仮）
 				MapCreate Map = new MapCreate(1);
+				
+				//プレイヤー描画
+				player.PlayerPaint();
+				
+				//プレイヤー操作
+				KeyAction key = new KeyAction();
 				break;
 				
 				

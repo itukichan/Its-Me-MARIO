@@ -9,10 +9,12 @@ public class MapCreate extends Mario{
 	Graphics gra = frame.panel.image.createGraphics();
 	
 	MapCreate(int stage){
-		gra.setColor(Color.BLUE);
-		gra.fillRect(0,0,1000,600);
+		
 		if(stage == 1) {
 		Map01 map = new Map01();
+		gra.setColor(Color.BLUE);
+		System.out.println(map.getMap01()[0].length);
+		gra.fillRect(0,0,map.getMap01()[0].length*30,600);
 		for(int i = 0; i<map.getMap01().length; i++) {
 			for(int j = 0; j<map.getMap01()[i].length;j++) {
 				//ブロック特定
