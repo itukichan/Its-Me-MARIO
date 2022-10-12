@@ -13,7 +13,7 @@ public class MapCreate extends Mario{
 		if(stage == 1) {
 		Map01 map = new Map01();
 		gra.setColor(Color.BLUE);
-		System.out.println(map.getMap01()[0].length);
+		//System.out.println(map.getMap01()[0].length);
 		gra.fillRect(0,0,map.getMap01()[0].length*30,600);
 		for(int i = 0; i<map.getMap01().length; i++) {
 			for(int j = 0; j<map.getMap01()[i].length;j++) {
@@ -25,7 +25,10 @@ public class MapCreate extends Mario{
 					gra.drawImage(brick,j*30,i*30,null);
 					break;
 				case 2:
-					gra.drawImage(player,j*30,i*30,null);
+					gra.drawImage(RamdomBlock,j*30,i*30,null);
+					break;
+				case 3:
+					gra.drawImage(enemy,j*30,i*30,null);
 					break;
 				}
 			 }

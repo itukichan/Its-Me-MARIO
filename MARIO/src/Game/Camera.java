@@ -11,15 +11,16 @@ public class Camera extends Mario{
 	
 	public int Coordinate() {
 		
+		int center = 480;
 		
-		if(Keyboard.isKeyPressed(KeyEvent.VK_RIGHT) && PlayerX >480) {
-			CameraX -= 5;
+		if(Keyboard.isKeyPressed(KeyEvent.VK_RIGHT) && PlayerX >=480) {
+			CameraX -= 3;
 		}
-		/*　左スクロール実装予定
-		if(Keyboard.isKeyPressed(KeyEvent.VK_RIGHT) && PlayerX <480) {
-			CameraX += 5;
+		
+		if(Keyboard.isKeyPressed(KeyEvent.VK_LEFT) && PlayerX <=PlayerX-CameraX) {
+			CameraX += 3;
 		}
-		*/
+		System.out.println("PlayerX"+PlayerX + "  CameraX"+CameraX);
 		
 		return CameraX;
 	}

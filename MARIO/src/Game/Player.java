@@ -9,7 +9,8 @@ public class Player extends Mario{
 		System.out.println("");
 	}
 	public void PlayerPaint() {
-		gra.drawImage(player,PlayerX,PlayerY,null);
+		gra.fillRect(PlayerX, PlayerY,30,30);
+		//gra.drawImage(player,PlayerX,PlayerY,null);
 		
 	}
 	

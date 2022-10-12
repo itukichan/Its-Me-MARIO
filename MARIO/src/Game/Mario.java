@@ -13,13 +13,15 @@ public class Mario {
 	public static boolean loop;
 	public static Image brick = new ImageIcon("./model/brick.png").getImage();
 	public static Image player = new ImageIcon("./model/mario.png").getImage();
+	public static Image RamdomBlock = new ImageIcon("./model/RamdomBlock.png").getImage();
+	public static Image enemy = new ImageIcon("./model/enemy01.png").getImage();
 	public static int PlayerX = 60;
 	public static int PlayerY = 510;
 	
 	public static void main(String[] args) {
 		frame = new Frame();
 		loop = true;
-		
+		KeyAction key = new KeyAction();
 		System.out.println(brick);
 		
 		Graphics gra = frame.panel.image.createGraphics();
@@ -28,7 +30,7 @@ public class Mario {
 		long startTime;
 		long fpsTime = 0;
 		int FPS = 0;
-		int fps = 30;
+		int fps = 60;
 		int FPSCount = 0;
 		EnumScreen screen = EnumScreen.START;
 		
@@ -48,7 +50,7 @@ public class Mario {
 			//スタード画面
 			case START:
 				gra.setColor(Color.WHITE);
-				gra.fillRect(0,0,30,30);
+				
 				if(Keyboard.isKeyPressed(KeyEvent.VK_SPACE)) {
 					screen = EnumScreen.PLAY;
 				}
@@ -63,9 +65,8 @@ public class Mario {
 				player.PlayerPaint();
 				
 				//プレイヤー操作
-				KeyAction key = new KeyAction();
+				key.keyAction();
 				break;
-				
 				
 			case GAME_OVER:
 				break;
